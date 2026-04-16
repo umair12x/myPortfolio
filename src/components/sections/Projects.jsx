@@ -11,7 +11,7 @@ const projects = [
     description: 'Full-stack enrollment platform serving 20,000+ users. Replaced manual paperwork with digital workflow featuring 5-role RBAC system and automated PDF generation.',
     tech: ['MERN', 'RBAC', 'PDF Generation', 'JWT'],
     metrics: '20K+ users · 5 roles · 99.9% uptime',
-    link: '#',
+    link: 'https://github.com/umair12x/eeForm',
   },
   {
     title: 'UAF Result Harvest',
@@ -19,7 +19,7 @@ const projects = [
     description: 'Playwright-powered scraping engine that auto-pulls LMS grades. Handles complex credit calculations and semester GPA aggregation.',
     tech: ['Playwright', 'Node.js', 'Web Scraping', 'Vercel'],
     metrics: 'Used by 500+ students · 100% manual data elimination',
-    link: '#',
+    link: 'https://uafcgpaharvester.vercel.app/',
   },
   {
     title: 'AgriSense',
@@ -27,7 +27,7 @@ const projects = [
     description: 'IoT sensor pipeline for real-time soil data + ML crop disease detection. Features AI fertilizer recommendations and community platform.',
     tech: ['IoT', 'ML', 'Docker', 'REST API', 'MERN'],
     metrics: 'Real-time · AI-powered · Containerized',
-    link: '#',
+    link: 'https://github.com/ZAINAZHAR303/agrisence',
   },
 ];
 
@@ -37,17 +37,17 @@ export default function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section id="projects" className="py-28 md:py-40 relative" ref={ref}>
+    <section id="projects" className="relative py-28 md:py-40" ref={ref}>
       <div className="container-custom">
-        <div className="grid-custom mb-16">
+        <div className="mb-16 grid-custom">
           <div className="md:col-span-3">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-xs uppercase tracking-wider text-ash">Work</span>
-              <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mt-3" />
+              <span className="text-xs tracking-wider uppercase text-ash">Work</span>
+              <div className="w-12 h-px mt-3 bg-stone-300 dark:bg-stone-700" />
             </motion.div>
           </div>
           <div className="md:col-span-8">
@@ -55,7 +55,7 @@ export default function Projects() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold tracking-tighter"
+              className="text-4xl font-bold tracking-tighter md:text-5xl"
             >
               Selected projects.
             </motion.h2>
@@ -69,40 +69,40 @@ export default function Projects() {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group relative"
+              className="relative group"
               onMouseEnter={() => setHoveredIndex(idx)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="grid-custom items-start">
+              <div className="items-start grid-custom">
                 <div className="md:col-span-4">
                   <div className="space-y-2">
-                    <span className="text-xs uppercase tracking-wider text-ash">{project.role}</span>
-                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight group-hover:pl-2 transition-all duration-300">
+                    <span className="text-xs tracking-wider uppercase text-ash">{project.role}</span>
+                    <h3 className="text-2xl font-bold tracking-tight transition-all duration-300 md:text-3xl group-hover:pl-2">
                       {project.title}
                     </h3>
                   </div>
                 </div>
                 
-                <div className="md:col-span-7 space-y-6">
-                  <p className="text-ash leading-relaxed">{project.description}</p>
+                <div className="space-y-6 md:col-span-7">
+                  <p className="leading-relaxed text-ash">{project.description}</p>
                   
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="text-xs px-2 py-1 bg-stone-100 dark:bg-stone-900 rounded"
+                        className="px-2 py-1 text-xs rounded bg-stone-100 dark:bg-stone-900"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
                   
-                  <div className="flex items-center justify-between flex-wrap gap-4 pt-4 border-t border-stone-100 dark:border-stone-900">
-                    <span className="text-sm font-mono text-ash">{project.metrics}</span>
+                  <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-stone-100 dark:border-stone-900">
+                    <span className="font-mono text-sm text-ash">{project.metrics}</span>
                     <motion.a
                       href={project.link}
                       whileHover={{ x: 4 }}
-                      className="text-sm uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all"
+                      className="flex items-center gap-1 text-sm tracking-wider uppercase transition-all group-hover:gap-2"
                     >
                       Case Study <span>→</span>
                     </motion.a>
@@ -111,7 +111,7 @@ export default function Projects() {
               </div>
               
               {/* Decorative line that expands on hover */}
-              <div className="absolute left-0 right-0 -bottom-4 h-px bg-stone-200 dark:bg-stone-800 overflow-hidden">
+              <div className="absolute left-0 right-0 h-px overflow-hidden -bottom-4 bg-stone-200 dark:bg-stone-800">
                 <motion.div
                   className="h-full bg-black dark:bg-white"
                   initial={{ width: '0%' }}
