@@ -23,26 +23,22 @@ export default function ThemeToggle() {
     localStorage.setItem('theme', newDark ? 'dark' : 'light');
   };
 
-  // Prevent hydration mismatch - compact skeleton matching new size
   if (!mounted) {
-    return (
-      <div className="w-8 h-8 rounded-full bg-transparent" />
-    );
+    return <div className="w-8 h-8 rounded-full" />;
   }
 
   return (
     <motion.button
       onClick={toggle}
-      className="relative w-8 h-8 rounded-full flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 dark:focus-visible:ring-stone-600"
+      className="relative w-8 h-8 rounded-full flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-accent interactive"
       whileTap={{ scale: 0.88 }}
       whileHover={{ scale: 1.08 }}
       transition={{ type: 'spring', stiffness: 400, damping: 17 }}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
-      {/* Subtle hover background */}
       <motion.div
-        className="absolute inset-0 rounded-full bg-stone-200/0 dark:bg-stone-700/0"
-        whileHover={{ backgroundColor: isDark ? 'rgba(68, 68, 68, 0.3)' : 'rgba(230, 230, 230, 0.5)' }}
+        className="absolute inset-0 rounded-full"
+        whileHover={{ backgroundColor: isDark ? 'rgba(20, 184, 166, 0.15)' : 'rgba(20, 184, 166, 0.1)' }}
         transition={{ duration: 0.2 }}
       />
 
@@ -57,11 +53,11 @@ export default function ThemeToggle() {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="absolute inset-0 w-4 h-4 text-stone-700 dark:text-stone-300"
+              className="absolute inset-0 w-4 h-4 text-accent-light"
               initial={{ scale: 0, rotate: -45, opacity: 0 }}
               animate={{ scale: 1, rotate: 0, opacity: 1 }}
               exit={{ scale: 0, rotate: 45, opacity: 0 }}
-              transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ duration: 0.2 }}
             >
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
             </motion.svg>
@@ -74,11 +70,11 @@ export default function ThemeToggle() {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="absolute inset-0 w-4 h-4 text-stone-600 dark:text-stone-400"
+              className="absolute inset-0 w-4 h-4 text-accent"
               initial={{ scale: 0, rotate: 45, opacity: 0 }}
               animate={{ scale: 1, rotate: 0, opacity: 1 }}
               exit={{ scale: 0, rotate: -45, opacity: 0 }}
-              transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ duration: 0.2 }}
             >
               <circle cx="12" cy="12" r="4" />
               <path d="M12 2v2" />
@@ -93,15 +89,6 @@ export default function ThemeToggle() {
           )}
         </AnimatePresence>
       </div>
-
-      {/* Tooltip on hover */}
-      <motion.span
-        initial={{ opacity: 0, y: 5 }}
-        whileHover={{ opacity: 1, y: 0 }}
-        className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[9px] uppercase tracking-wider text-stone-500 dark:text-stone-400 whitespace-nowrap pointer-events-none"
-      >
-        {isDark ? 'Light' : 'Dark'}
-      </motion.span>
     </motion.button>
   );
 }
