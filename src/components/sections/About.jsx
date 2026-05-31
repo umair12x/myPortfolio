@@ -72,7 +72,7 @@ export default function About() {
                   transition={{ delay: 0.3 + i * 0.08 }}
                   className="p-5 md:p-6 rounded-2xl glass-card card-hover group"
                 >
-                  <span className="text-accent text-sm mb-3 block group-hover:scale-110 transition-transform inline-block">
+                  <span className="text-accent text-sm mb-3 block group-hover:scale-110 transition-transform ">
                     {stat.icon}
                   </span>
                   <div className="heading-display text-3xl md:text-4xl mb-1">{stat.value}</div>

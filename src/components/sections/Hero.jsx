@@ -222,7 +222,7 @@ export default function Hero() {
                   alt="Muhammad Umair"
                   fill
                   sizes="(max-width: 640px) 18rem, (max-width: 768px) 20rem, 24rem"
-                  className="object-cover transition-all duration-700 grayscale-[30%] hover:grayscale-0"
+                  className="object-cover transition-all duration-700 grayscale-30 hover:grayscale-0"
                   priority
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-charcoal/30 via-transparent to-transparent opacity-60" />

@@ -1,4 +1,3 @@
-// app/client-layout.js
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -17,16 +16,17 @@ export default function ClientLayout({ children }) {
 
   return (
     <>
-      <Cursor className="z-50"/>
+      <div className="fixed inset-0 noise-overlay z-0 pointer-events-none" aria-hidden="true" />
+      <Cursor />
       <Navigation />
       <AnimatePresence mode="wait">
         <motion.main
           key={typeof window !== 'undefined' ? window.location.pathname : ''}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="relative"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="relative z-10"
         >
           {children}
         </motion.main>

@@ -1,12 +1,35 @@
 import './globals.css';
 import ClientLayout from './client-layout';
+import { Syne, DM_Sans, JetBrains_Mono } from 'next/font/google';
+
+const syne = Syne({
+  subsets: ['latin'],
+  variable: '--font-syne',
+  display: 'swap',
+  weight: ['400', '500', '600', '700', '800'],
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains',
+  display: 'swap',
+  weight: ['400', '500', '600'],
+});
 
 export const metadata = {
   title: {
     default: 'Muhammad Umair | Full-Stack Developer & MERN Expert',
-    template: '%s | Muhammad Umair'
+    template: '%s | Muhammad Umair',
   },
-  description: 'Final-year Computer Science student and full-stack developer with production experience. Built enrollment systems for 20,000+ users using MERN stack. Available for internships.',
+  description:
+    'Final-year Computer Science student and full-stack developer with production experience. Built enrollment systems for 20,000+ users using MERN stack. Available for internships.',
   keywords: [
     'Muhammad Umair',
     'Full-Stack Developer',
@@ -19,7 +42,7 @@ export const metadata = {
     'Playwright Scraping',
     'IoT Developer',
     'AI Enthusiast',
-    'umair12x'
+    'umair12x',
   ],
   authors: [{ name: 'Muhammad Umair', url: 'https://github.com/umair12x' }],
   creator: 'Muhammad Umair',
@@ -38,7 +61,8 @@ export const metadata = {
   },
   openGraph: {
     title: 'Muhammad Umair | Full-Stack Developer & MERN Expert',
-    description: 'Production-ready full-stack developer. Built E-Enrollment System serving 20,000+ students. Specialized in MERN stack, Next.js, and scalable architectures.',
+    description:
+      'Production-ready full-stack developer. Built E-Enrollment System serving 20,000+ students. Specialized in MERN stack, Next.js, and scalable architectures.',
     url: 'https://umair12x.dev',
     siteName: 'Muhammad Umair Portfolio',
     images: [
@@ -56,7 +80,8 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Muhammad Umair | Full-Stack Developer',
-    description: 'Built scalable systems for 20K+ users | MERN Stack | Next.js | Node.js | Available for internships',
+    description:
+      'Built scalable systems for 20K+ users | MERN Stack | Next.js | Node.js | Available for internships',
     creator: '@umair12x',
     site: '@umair12x',
     images: {
@@ -79,33 +104,36 @@ export const metadata = {
   },
   verification: {
     google: 'your-google-verification-code',
-    // other verification codes
   },
   category: 'technology',
   classification: 'Personal Portfolio',
   referrer: 'origin-when-cross-origin',
   colorScheme: 'dark light',
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#fafafa' },
-    { media: '(prefers-color-scheme: dark)', color: '#1a1a1a' },
+    { media: '(prefers-color-scheme: light)', color: '#f8f7f4' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0b' },
   ],
   manifest: '/site.webmanifest',
 };
 
-// Optional: Add viewport separately (Next.js 14+)
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#fafafa' },
-    { media: '(prefers-color-scheme: dark)', color: '#1a1a1a' },
+    { media: '(prefers-color-scheme: light)', color: '#f8f7f4' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0b' },
   ],
 };
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="antialiased text-black bg-white dark:bg-black dark:text-white">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${syne.variable} ${dmSans.variable} ${jetbrains.variable}`}
+    >
+      <body className="antialiased">
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

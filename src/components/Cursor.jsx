@@ -51,7 +51,7 @@ export default function Cursor() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9999] border border-accent/60 mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-9999 border border-accent/60 mix-blend-difference hidden md:block"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -63,7 +63,7 @@ export default function Cursor() {
         transition={{ type: 'spring', stiffness: 400, damping: 25 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full pointer-events-none z-[9999] bg-accent hidden md:block"
+        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full pointer-events-none z-9999 bg-accent hidden md:block"
         style={{
           x: cursorX,
           y: cursorY,
